@@ -11,7 +11,7 @@ using json = nlohmann::json;
 double pi();
 
 // Возвращает значение Г-функции для целого индекса
-int gamma(int k);
+int factorial(int k);
 
 // Возвращает значение Г-функции для полуцелого индекса
 double gamma(double k);

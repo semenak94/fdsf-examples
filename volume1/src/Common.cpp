@@ -10,16 +10,16 @@ double pi() {
 }
 
 // Возвращает значение Г-функции для целого индекса
-int gamma(int k) {
+int factorial(int k) {
     if (k < 0) {
         throw std::invalid_argument("k must be greater or equal 0");
     }
-    return k == 0 ? 1 : k*gamma(k - 1);
+    return k == 0 ? 1 : k*factorial(k - 1);
 }
 
 // Возвращает значение Г-функции для полуцелого индекса
 double gamma(double k) {
-    std::map<double, double> SUPPORTED_HALFINTEGER_INDICES = {
+    std::map<double, double> SUPPORTED_INDICES = {
         { -1.5, -2 * sqrt(pi()) },
         { -0.5, sqrt(pi()) },
         { 0.5, sqrt(pi()) / 2 },
@@ -28,9 +28,9 @@ double gamma(double k) {
         { 3.5, 105 * sqrt(pi()) / 16 }
     };
 
-    return SUPPORTED_HALFINTEGER_INDICES.at(k);
+    return SUPPORTED_INDICES.at(k);
 }
-#include <iostream>
+
 namespace filesys {
 
     // Считать значения из файла
