@@ -16,6 +16,9 @@ int factorial(int k);
 // Возвращает значение Г-функции для полуцелого индекса
 double gamma(double k);
 
+// Дзета-функция
+double dzetaFunction(int n);
+
 namespace filesys {
     // Считать значения из файла
     json readFile(const std::string& filename);

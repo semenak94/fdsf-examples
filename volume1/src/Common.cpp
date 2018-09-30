@@ -31,6 +31,37 @@ double gamma(double k) {
     return SUPPORTED_INDICES.at(k);
 }
 
+// Нечетное число
+bool isOdd(int n) {
+    return n % 2 != 0;
+}
+
+// Дзета-функция
+double dzetaFunction(int n) {
+    if (isOdd(n)) {
+        return 0;
+    }
+    if (n > 24) {
+        throw std::domain_error("n is too large");
+    }
+    const std::array<double, 12> DZETA = {
+        1.0 / 6,
+        1.0 / 90,
+        1.0 / 945,
+        1.0 / 9450,
+        1.0 / 93550,
+        691.0 / 638512875,
+        2.0 / 18243225,
+        3617.0 / 325641566250,
+        43867.0 / 38979295480125,
+        174611.0 / 1531329465290625,
+        77683.0 / 13447856940643124,
+        236364091.0 / 201919571963756511232.0
+    };
+
+    return DZETA.at(n / 2 - 1)*pow(pi(), n);
+}
+
 namespace filesys {
 
     // Считать значения из файла
