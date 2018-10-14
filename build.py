@@ -11,7 +11,7 @@ def main():
         os.makedirs(build_dir)
     os.chdir(build_dir)
     # TODO: function run_subprocess_sync
-    subprocess.call(["cmake", ".."], shell=True)
+    subprocess.call(["cmake", "..", "-T", "v140"], shell=True)
     subprocess.call(["cmake", "--build", ".", "--config","-DCMAKE_BUILD_TYPE=Release"])
 
 main()
